@@ -1,0 +1,11 @@
+.title{
+  background: pink;
+}
+
+.subTitle{
+  color: green;
+}
+
+a:hover{
+  color: coral;
+}

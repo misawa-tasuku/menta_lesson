@@ -1,0 +1,21 @@
+body{
+  background-color: gray;
+}
+
+li{
+  list-style: none;
+  
+  float: left; 
+  padding-left: 20px;
+}
+
+#menu{  
+  color: rgba(250, 34, 100, .5);
+}
+
+
+
+.kuna{
+  text-align: right;
+  padding-bottom: 10px;
+}
