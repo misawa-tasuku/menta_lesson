@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calender</title>
+  <meta charset="utf-8">
+  <title>Calendar</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,52 +21,17 @@
         <th>Thu</th>
         <th>Fri</th>
         <th>Sat</th>
-        <th>Mon</th>
       </tr>
     </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
       <tr>
-        <td class="disabled">1</td>
-        <td class="disabled">1</td>
-        <td class="disabled">1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
+        <td id="today" colspan="7">Today</td>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td class="today">1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-        <td class="disabled">1</td>
-        <td class="disabled">1</td>
-        <td class="disabled">1</td>
-      </tr>
-      <tfoot>
-        <tr>
-          <td id="today" colspan="7">Today</td>
-        </tr>
-      </tfoot>
+    </tfoot>
   </table>
+
   <script src="main.js"></script>
 </body>
 </html>

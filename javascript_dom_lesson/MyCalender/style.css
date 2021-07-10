@@ -1,43 +1,47 @@
-body{
-  font-family: 'Courier New', Courier, monospace;
+body {
+  font-family: 'Courier New', monospace;
   font-size: 14px;
 }
 
-table{
+table {
   border-collapse: collapse;
   border: 2px solid #eee;
 }
 
-thead, 
-tfoot{
+thead,
+tfoot {
   background: #eee;
 }
 
 th,
-td{
+td {
   padding: 8px;
   text-align: center;
 }
 
-tbody, td:first-child{
+tbody td:first-child {
   color: red;
 }
 
-tbody, td:last-child{
+tbody td:last-child {
   color: blue;
 }
 
-tfoot{
+tfoot {
   font-weight: bold;
 }
 
-td.disabled{
+td.disabled {
   opacity: 0.3;
 }
 
-#prev, 
+td.today {
+  font-weight: bold;
+}
+
+#prev,
 #next,
-#today{
+#today {
   cursor: pointer;
   user-select: none;
 }
