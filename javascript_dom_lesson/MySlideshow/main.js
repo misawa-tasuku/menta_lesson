@@ -60,7 +60,7 @@
     timeoutId = setTimeout(() => {
       next.click();
       playSlideshow();
-    }, 1000);
+    }, 3000);
   }
 
   let isPlaying = false;
@@ -74,5 +74,19 @@
       play.textContent = 'Play';
     }
     isPlaying = !isPlaying;
+  });
+
+  const reset = document.getElementById('reset');
+  reset.addEventListener('click', ()  => {
+    // return confirm('リセットしますか?');
+    if (currentIndex !== 0 ){
+      alert('リセットしますか?')
+      document.querySelectorAll('.thumbnails > li')[0].click();
+      if(isPlaying === true){
+        clearTimeout(timeoutId);
+        play.textContent = 'Play';
+      }
+    }
+    
   });
 }
