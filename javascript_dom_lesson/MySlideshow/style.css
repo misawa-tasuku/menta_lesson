@@ -26,13 +26,17 @@ nav{
 nav ul{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 nav li{
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 12px;
+  flex-grow: 1;
+  width: 50%;
   padding: 4px;
+  /* margin-bottom: 4px; */
   text-align: center;
   cursor: pointer;
   user-select: none;
@@ -48,6 +52,11 @@ nav li:hover{
 
 #next, #prev{
   width: 60px;
+}
+
+#reset {
+  display: block;
+  margin-top: 4px;
 }
 
 .thumbnails {
