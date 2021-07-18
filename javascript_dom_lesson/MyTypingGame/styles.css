@@ -7,4 +7,15 @@ body {
 #target {
   font-size: 48px;
   letter-spacing: .1em;
+  /* border-radius: 0% solid#eee; */
+  /* width: 800px; */
+}
+
+#result {
+  font-size: 64px;
+  background-color: gold;
+}
+
+.info {
+  color: #ccc;
 }
