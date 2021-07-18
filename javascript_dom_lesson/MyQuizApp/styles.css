@@ -101,3 +101,7 @@ body{
   display: block;
   text-decoration: none;
 }
+
+#timer {
+  color: #ccc;;
+}

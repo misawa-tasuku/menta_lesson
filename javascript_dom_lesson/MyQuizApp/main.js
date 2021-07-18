@@ -8,13 +8,38 @@
   const scoreLabel = document.querySelector('#result > p')
 
   const quizSet = shuffle([
-    {q: '世界で一番大きな湖は？', c: ['カスピ海', 'カリブ海', '琵琶湖']},
-    {q: '2の8乗は？', c: ['256', '64', '1024']},
-    {q: '次のうち、最初にリリースされた言語は？', c: ['Python', 'JavaScript', 'HTML']},
+    {q: '世界で一番大きな湖は？', c: ['カスピ海', 'カリブ海', '琵琶湖', 'バイカル湖']},
+    {q: '2の8乗は？', c: ['256', '64', '1024', '2048']},
+    {q: '次のうち、最初にリリースされた言語は？', c: ['Python', 'JavaScript', 'HTML', 'Swift']},
   ]);
   let currentNum = 0;
   let isAnswered;
   let score = 0;
+
+  const timeLimit = 15 * 1000;
+  let startTime;
+  const timeLabel = document.getElementById('timer');
+  
+
+  function updateTimer(){
+    const timeLeft = startTime + timeLimit - Date.now();
+    timeLabel.textContent = (timeLeft / 1000).toFixed(2);
+
+    const timeoutId = setTimeout(() => {
+      updateTimer();
+    }, 10);
+
+    if (timeLeft < 0){
+      clearTimeout(timeoutId);
+      timeLabel.textContent = '0.00';
+      setTimeout(() => {
+        alert('タイムアップ');
+      }, 100);
+      // return;
+    }
+  }
+
+
 
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -65,8 +90,11 @@
   }
 
   setQuiz();
+  startTime = Date.now();
+  updateTimer();
 
   btn.addEventListener('click', () => {
+    // updateTimer();
     if (btn.classList.contains('disabled')){
       return;
     }
