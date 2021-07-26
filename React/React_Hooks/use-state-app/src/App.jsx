@@ -7,7 +7,7 @@ export const App = () => {
   return (
     <>
       <p>カウント:{count}</p>
-      <p>名前:{name}</p>
+      <p>:{name}</p>
       <input 
         type="button"
         value="increment"
