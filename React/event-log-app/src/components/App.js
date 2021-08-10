@@ -1,6 +1,7 @@
 import React, {useReducer, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reducer from '../reducers'
+import Event from './Event'
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, [])
@@ -30,7 +31,7 @@ export const App = () => {
         </div>
         <div className="form-group">
           <label htmlFor="formEventBody">ボディー</label>
-          <input className="form-control" id="formEventBody" value={body} />
+          <input className="form-control" id="formEventBody" value={body} onChange={e => setBody(e.target.value)} />
         </div>
 
         <button className="btn btn-primary" onClick={addEvent}>イベントを作成</button>
@@ -46,6 +47,10 @@ export const App = () => {
             <th></th>
           </tr>
         </thead>
+        <tbody>
+          { state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
+          
+        </tbody>
       </table>
     </div>
   );
