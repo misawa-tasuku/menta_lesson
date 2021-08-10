@@ -20,6 +20,14 @@ export const App = () => {
     setTitle('')
     setBody('')
   }
+
+  const deleteAllEvent = (e) => {
+    e.preventDefault()
+    const result = window.confirm('全てのイベントを削除しても良いですか?')
+    if (result) dispatch( {type: 'DELETE_ALL_EVENTS'} )
+  }
+
+  const unCreatable = title === '' || body === '' 
   
   return (
     <div className="container">
@@ -34,8 +42,8 @@ export const App = () => {
           <input className="form-control" id="formEventBody" value={body} onChange={e => setBody(e.target.value)} />
         </div>
 
-        <button className="btn btn-primary" onClick={addEvent}>イベントを作成</button>
-        <button className="btn btn-danger" onClick={addEvent}>全てのイベントを削除</button>
+        <button className="btn btn-primary" onClick={addEvent} disabled={unCreatable}>イベントを作成</button>
+        <button className="btn btn-danger" onClick={deleteAllEvent} disabled={state.length === 0} >全てのイベントを削除</button>
       </form>
       <h4>イベント一覧</h4>
       <table className="table table-hover">
