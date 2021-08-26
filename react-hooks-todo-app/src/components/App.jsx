@@ -1,7 +1,28 @@
-import React from "react";
+import React, {useReducer, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import reducer from '../reducers'
 
 const App = () =>  {
+  const [state, dispatch] = useReducer(reducer, [])
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
+
+  const addTodo = e => {
+    e.preventDefault()//画面のリロード防ぐ
+    dispatch({
+      type: 'CREATE_TODO',
+      title,
+      body,
+    })
+    setTitle('')
+    setBody('')
+  }
+
+
+
+  const deleteTodo = () => {
+
+  }
   return (
     // JSXだとclassName
     <div className="container-fluid">
@@ -9,15 +30,17 @@ const App = () =>  {
       <form>
         <div className="form-group">
           <label htmlFor="formEventTitle">タイトル</label>
-          <input type="form-control" id="formEventTitle" />
+          <input type="form-control" id="formEventTitle" value={title} 
+          onChange={e => setTitle(e.target.value)} />
         </div>
 
         <div className="form-group">
           <label htmlFor="formEventBody">内容</label>
-          <input type="form-control" id="formEventBody" />
+          <input type="form-control" id="formEventBody" value={body}
+          onChange={e => setBody(e.target.value)} />
         </div>
-        <button className="btn btn-primary">TODO作成</button>
-        <button className="btn btn-danger">全てのTODOを一括削除</button>
+        <button className="btn btn-primary" onClick={addTodo}>TODO作成</button>
+        <button className="btn btn-danger" onClick={deleteTodo}>全てのTODOを一括削除</button>
       </form>
       <h4>TODO一覧</h4>
       <table>
