@@ -7,7 +7,7 @@ const todos = (state = [], action) => {
       const id = length === 0 ? 1 : state[length - 1].id + 1
       return [...state, {id, ...todo}]
     case 'DELETE_TODO':
-      return state
+      return state.filter(todo => todo.id !== action.id)
     case 'DELETE_ALL_TODOS':
       return []
     default:
