@@ -21,9 +21,14 @@ const App = () =>  {
 
 
 
-  const deleteTodo = () => {
-
+  const deleteAllTodo = e => {
+    e.preventDefault()
+    const result = window.confirm('全てのTODOを本当に削除してもよろしいですか?')
+    dispatch( {type: 'DELETE_ALL_TODOS'} )
   }
+
+  const unCreatable = title === '' || body === ''
+
   return (
     // JSXだとclassName
     <div className="container-fluid">
@@ -37,11 +42,11 @@ const App = () =>  {
 
         <div className="form-group">
           <label htmlFor="formEventBody">内容</label>
-          <input type="form-control" id="formEventBody" value={body}
+          <textarea type="form-control" id="formEventBody" value={body}
           onChange={e => setBody(e.target.value)} />
         </div>
-        <button className="btn btn-primary" onClick={addTodo}>TODO作成</button>
-        <button className="btn btn-danger" onClick={deleteTodo}>全てのTODOを一括削除</button>
+        <button className="btn btn-primary" onClick={addTodo} disabled={unCreatable}>TODO作成</button>
+        <button className="btn btn-danger" onClick={deleteAllTodo} disabled={state.length === 0}>全てのTODOを一括削除</button>
       </form>
       <h4>TODO一覧</h4>
       <table>
